@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Life Planner AI</title>
+</head>
+<body>
+
+    <h1>Life Planner AI </h1>
+
+    <form method="POST">
+        <input type="text" name="goal" placeholder="Enter your goal..." required>
+        <button type="submit">Generate Roadmap</button>
+    </form>
+
+    {% if roadmap %}
+        <h2>Your Roadmap:</h2>
+       <div style="white-space: pre-wrap; border:1px solid #ccc; padding:10px;">
+    {{ roadmap }}
+</div>
+    {% endif %}
+
+</body>
+</html>

@@ -1,23 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Life Planner AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
-    <h1>Life Planner AI </h1>
+<div class="container">
 
-    <form method="POST">
-        <input type="text" name="goal" placeholder="Enter your goal..." required>
-        <button type="submit">Generate your Roadmap</button>
+    <h1>🚀 Life Planner AI</h1>
+    <p class="subtitle">Turn your goals into structured success roadmaps</p>
+
+    <form method="POST" class="form">
+        <input type="text" name="goal" placeholder="Enter your goal (e.g., Become Cloud Engineer)" required>
+        <button type="submit">Generate Roadmap</button>
     </form>
 
     {% if roadmap %}
-        <h2>Your Roadmap:</h2>
-       <div style="white-space: pre-wrap; border:1px solid #ccc; padding:10px;">
-    {{ roadmap }}
-</div>
+    <div class="roadmap-container">
+        <h2>📍 Your AI Roadmap</h2>
+
+        <div class="roadmap">
+            {{ roadmap }}
+        </div>
+    </div>
     {% endif %}
+
+</div>
 
 </body>
 </html>

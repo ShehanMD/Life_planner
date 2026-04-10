@@ -3,6 +3,7 @@ import requests
 import os
 
 from dotenv import load_dotenv
+load_dotenv(override=True)
 
 load_dotenv()
 
@@ -16,6 +17,8 @@ HEADERS = {
     "Authorization": f"Bearer {os.getenv('HF_TOKEN')}",
     "Content-Type": "application/json"
 }
+
+print("TOKEN:", os.getenv("HF_TOKEN"))
 
 def generate_roadmap(goal):
     prompt = f"""
@@ -47,7 +50,7 @@ def generate_roadmap(goal):
 
         print("Status:", response.status_code)
         print("Response:", response.text)
-        print("TOKEN:", os.getenv("HF_TOKEN"))
+        
 
         if response.status_code != 200:
             return f"Error: {response.text}"
